@@ -1,13 +1,31 @@
 from flask import Flask
 from flask_restful import Api, Resource , reqparse , abort
+from flask_sqlalchemy import SQLAlchemy
 
 # reqparser : helps send the needed data
 
 app= Flask(__name__)
 api = Api(app)      #wrap app in an api
 
-names= {"tim":{"age":21 , "gen" :"male"}
-        ,"jim":{"age":28 , "gen" :"male"}}
+app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///database.db'  #tmp/database : if we store in temp folder in the project folder
+db = SQLAlchemy(app)
+
+class VideoModel(db.Model):
+    id =  db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(100), nullable= False)
+    views = db.Column(db.Integer, nullable= False)
+    likes = db.Column(db.Integer, nullable= False)
+
+    def __repr__(self):
+        return f'Video(name= {self.name}, views={self.views}, likes={self.likes})'  # to represent object in this form
+
+# Create tables if they don't exist
+with app.app_context():
+    db.create_all()
+
+
+# names= {"tim":{"age":21 , "gen" :"male"}
+#         ,"jim":{"age":28 , "gen" :"male"}}
 
 class HelloWorld(Resource):     #inheriting from resource  : class as a reaosurce
 
