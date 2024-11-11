@@ -23,5 +23,5 @@ BASE = "http://127.0.0.1:8010/"
 # response= requests.get(BASE + 'video/0')
 # print(response)
 
-response= requests.patch(BASE + 'video/0' , {"likes": 20})
+response= requests.patch(BASE + 'video/0' , json={"likes": 20})
 print(response)
