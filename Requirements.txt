@@ -1,0 +1,12 @@
+aniso8601==9.0.1           # Compatible with latest Flask-RESTful
+click==8.1.3               # Compatible with Flask >= 2.0.0
+Flask==2.3.3               # Latest stable release
+Flask-RESTful==0.3.9       # Compatible with Flask >= 2.0.0
+Flask-SQLAlchemy==3.0.5    # Latest version, compatible with Flask >= 2.0.0
+itsdangerous==2.1.2        # Updated for Flask >= 2.0.0
+Jinja2==3.1.2              # Updated to match latest Flask dependencies
+MarkupSafe==2.1.3          # Latest stable release
+pytz==2023.3               # Latest stable release
+six==1.16.0                # Latest version of six
+SQLAlchemy==2.0.20         # Compatible with Flask-SQLAlchemy 3.0+
+Werkzeug==2.3.7            # Latest version compatible with Flask >= 2.0.0
